@@ -24,7 +24,7 @@ ReorderData is a large-scale dataset built for matrix reordering. ReorderData ha
 - [x] Visual pattern recognition
 - [x] 544,500 binary matrices and 1,089,000 continuous matrices
 - [x] Four visual patterns: block, off-diagonal block, star, and band
-- [x] Scores to measure visual patterns
+- [x] Scores to measure visual pattern quality
 
 Each matrix is of size 200x200 and symmetric.
 
