@@ -3,7 +3,7 @@ layout: page
 permalink: /details/
 title: Data Details
 description: 
-nav: true
+nav: false
 nav_order: 6
 ---
 

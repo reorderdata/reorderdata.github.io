@@ -3,7 +3,8 @@ layout: about
 title: About
 permalink: /
 subtitle: A Dataset for Matrix Reordering
-
+description: "Matrix reordering permutes the rows and columns of a matrix to reveal meaningful visual patterns, such as blocks that represent clusters.A comprehensive collection of such matrices and their scores for measuring the quality of visual patterns in these matrices contributes to building a benchmark for selecting or designing an appropriate reordering algorithm for a task of interest.In this paper, we build a matrix reordering dataset, ReorderData, with the goal of advancing matrix reordering techniques.This is achieved by generating a large set of diverse and representative matrices and scoring these matrices with a convolution- and entropy-based method. Our dataset contains 544,500 binary matrices and 1,089,000 continuous matrices, each featuring one of four visual patterns: block, off-diagonal block, star, or band. We demonstrate the usefulness of ReorderData through three main applications in matrix reordering: 1) evaluating different reordering algorithms, 2) creating a unified scoring model to measure the visual patterns in any matrix, and 3) developing a deep learning model for matrix reordering."
+# pretty_table: true
 # profile:
 #   align: right
 #   image: prof_pic.jpg
@@ -16,42 +17,121 @@ subtitle: A Dataset for Matrix Reordering
 ---
 <br />
 
-<h3><span class="font-weight-bold">What is Reorder Data?</span></h3>
+<h4><span class="font-weight-bold">What is ReorderData?</span></h4>
 
-ReorderData is a large-scale dataset built for matrix reordering. ReorderData has the following features:
+ReorderData is a large-scale matrix dataset built for matrix reordering. ReorderData has the following features:
 
-- [x] Matrix reordering
 - [x] Visual pattern recognition
 - [x] 544,500 binary matrices and 1,089,000 continuous matrices
 - [x] Four visual patterns: block, off-diagonal block, star, and band
-- [x] Scores to measure visual pattern quality
+- [x] Scores to measure the quality of visual patterns
 
 Each matrix is of size 200x200 and symmetric.
 
 <br />
+
 TODO: A video introduction of the dataset.
-<br />
-
-<h3><span class="font-weight-bold">Dataset & Codes</span></h3>
-
-We provide the matrix dataset ReorderData as well as the unified scoring model and the reordering models introduced in Sections 6.2 and 6.3. 
-- [Dataset](https://drive.google.com/drive/u/1/folders/1QAEHPqj7Tog1gpj10dfqKBwSQffRHsIX) (TODO: upload training data)
-- [Code for data generation pipeline]() (TODO: upload code)
-- [Unified scoring model]() (TODO: upload code and model)
-- [Reordering models]() (TODO: upload code and model)
 
 <br />
 
-<h3><span class="font-weight-bold">Dataset Generation Pipeline</span></h3>
-<div class="col-sm mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/system_pipeline.png" class="img-fluid rounded z-depth-1" zoomable=true %}
-</div>
-To increase the dataset's representativeness, the number and size of visual patterns in the matrix templates are aligned with real-world matrices. Diversity is achieved through a large number of matrix variations with diverse degrees of degeneration. We propose the convolution- and entropy-based scoring method to directly measure the quality of visual patterns.
+<h4><span class="font-weight-bold">Dataset</span></h4>
 
-<br />
+We provide the test set of ReorderData at [Google Drive](https://drive.google.com/drive/folders/1OSSXmXupKJJgr8V0pESfGUzMTbCmnNiN) and [Hugging Face](https://huggingface.co/datasets/reorderdata/ReorderData).
 
-<div class="col-sm mt-3 mt-md-0">
+<div class="col-sm mt-0 mt-md-0">
     {% include figure.liquid path="assets/img/examples.png" class="img-fluid rounded z-depth-1" zoomable=false %}
 </div>
+
+<br />
+
+<h4><span class="font-weight-bold">Dataset Generation Pipeline</span></h4>
+
+To increase the dataset's representativeness, the number and size of visual patterns in the matrix templates are aligned with real-world matrices. Diversity is achieved through a large number of matrix variations with diverse degrees of degeneration. We propose the convolution- and entropy-based scoring method to directly measure the quality of visual patterns.
+
+The code for generating the dataset is available at [Github](https://github.com/reorderdata/reorderdata_code).
+
+<div class="row justify-content-sm-center">
+<div class="col-sm mt-0 mt-md-0">
+    {% include figure.liquid path="assets/img/system_pipeline.png" class="img-fluid rounded z-depth-1" zoomable=true %}
+</div>
+</div>
+<div class="caption">
+    The construction pipeline for the ReorderData dataset.
+</div>
+
+
+<br />
+
+<h4><span class="font-weight-bold">Unified scoring model</span></h4>
+
+We build a unified scoring model based on the ReorderData dataset. This model aligns with the convolution- and entropy-based scoring method across all four visual patterns in both binary and continuous matrices and can also measure matrices of varying sizes. 
+
+The unified scoring model is available [Google Drive](https://drive.google.com/drive/folders/1OSSXmXupKJJgr8V0pESfGUzMTbCmnNiN) and [Hugging Face](https://huggingface.co/reorderdata/unified_scoring_model). The related test code is available at [Github](https://github.com/reorderdata/reorderdata_code).
+
+<div class="row justify-content-sm-center">
+    <div class="col-sm-8 mt-4 mt-md-0">
+        {% include figure.liquid 
+            path="assets/img/score.png" 
+            class="img-fluid rounded z-depth-1" 
+            zoomable=false 
+        %}
+    </div>
+</div>
+<div class="caption">
+    Examples scores of real-world matrices generated by the unified scoring model. For each matrix, the scores measure the quality of block, off-diagonal block, star, and band patterns, respectively.
+</div>
+
+<div class="row justify-content-sm-center">
+    <div class="col-sm-10 mt-4 mt-md-0">
+        {% include figure.liquid 
+            path="assets/img/scoring.png" 
+            class="img-fluid rounded z-depth-0" 
+            zoomable=false 
+        %}
+    </div>
+</div>
+<div class="caption">
+    The performance of deep neural networks as the unified scoring model. The best performance under each measure is bold.
+</div>
+
+<br />
+
+<h4><span class="font-weight-bold">Deep reordering model</span></h4>
+
+The extensive and diverse matrices in ReorderData offer valuable supervision for training a deep reordering model. By treating the matrices with index swaps as negative samples and their ground-truth matrices as positive samples, we build a deep model for matrix reordering.
+
+Models are available at [Google Drive](https://drive.google.com/drive/folders/1OSSXmXupKJJgr8V0pESfGUzMTbCmnNiN) or [Hugging Face](https://huggingface.co/reorderdata/reordering_model). The related test code is available at [Github](https://github.com/reorderdata/reorderdata_code).
+
+<div class="row justify-content-sm-center">
+    <div class="col-sm-8 mt-4 mt-md-0">
+        {% include figure.liquid 
+            path="assets/img/deep_reorder.png" 
+            class="img-fluid rounded z-depth-1" 
+            zoomable=false 
+        %}
+    </div>
+</div>
+<div class="caption">
+    The architecture of our deep reordering model.
+</div>
+
+<div class="row justify-content-sm-center">
+    <div class="col-sm-10 mt-4 mt-md-0">
+        {% include figure.liquid 
+            path="assets/img/reorder.png" 
+            class="img-fluid rounded z-depth-0" 
+            zoomable=false 
+        %}
+    </div>
+</div>
+<div class="caption">
+    Evaluation results of existing matrix reordering algorithms and our matrix reordering model. The best one is bold, and the runner-up is underlined.
+</div>
+
+<br />
+
+
+
+
 
 
