@@ -36,7 +36,7 @@ TODO: A video introduction of the dataset.
 
 <h4><span class="font-weight-bold">Dataset</span></h4>
 
-We provide the ReorderData test set at [Google Drive](https://drive.google.com/drive/folders/1OSSXmXupKJJgr8V0pESfGUzMTbCmnNiN) and [Hugging Face](https://huggingface.co/datasets/reorderdata/ReorderData).
+We provide the ReorderData test set at [Google Drive](https://drive.google.com/drive/folders/1GHtuL6TgyQ7WMW1C8sIYebx4HBknKu5n?usp=drive_link) and [Hugging Face](https://huggingface.co/datasets/reorderdata/ReorderData).
 
 <div class="col-sm mt-0 mt-md-0">
     {% include figure.liquid path="assets/img/examples.png" class="img-fluid rounded z-depth-1" zoomable=false %}
@@ -48,7 +48,7 @@ We provide the ReorderData test set at [Google Drive](https://drive.google.com/d
 
 To ensure the representativeness and diversity of the ReorderData dataset, we first generate a set of representative matrix templates for each visual pattern. Then, based on these matrix templates, a large number of matrix variations with diverse degrees of degeneration are generated. The diversity is achieved by combining different variation methods, including index swapping and two types of typical anti-patterns: noise anti-patterns and noise-cluster anti-patterns. To accurately evaluate the quality of visual patterns in a matrix, we develop a scoring method by combining the matching capability of convolutional kernels and the disorder detection capability of entropy.
 
-The code for generating the dataset is available at [Github](https://github.com/reorderdata/reorderdata_code).
+The code for generating the dataset is available at [Github](https://github.com/reorderdata/reorderdata_code/tree/main/generator).
 
 <div class="row justify-content-sm-center">
 <div class="col-sm mt-0 mt-md-0">
@@ -66,7 +66,7 @@ The code for generating the dataset is available at [Github](https://github.com/
 
 We build a unified scoring model based on the ReorderData dataset. This model aligns with the convolution- and entropy-based scoring method across all four visual patterns in both binary and continuous matrices and can also measure matrices of varying sizes. 
 
-The unified scoring model is available [Google Drive](https://drive.google.com/drive/folders/1OSSXmXupKJJgr8V0pESfGUzMTbCmnNiN) and [Hugging Face](https://huggingface.co/reorderdata/unified_scoring_model). The related code is available at [Github](https://github.com/reorderdata/reorderdata_code).
+The unified scoring model is available [Google Drive](https://drive.google.com/drive/folders/1QatoIuwYmqpBRF-bXoPHzY24a0KdOriw?usp=drive_link) and [Hugging Face](https://huggingface.co/reorderdata/unified_scoring_model). The related code is available at [Github](https://github.com/reorderdata/reorderdata_code/tree/main/unified_scoring_model).
 
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-4 mt-md-0">
@@ -100,7 +100,7 @@ The unified scoring model is available [Google Drive](https://drive.google.com/d
 
 The extensive and diverse matrices in ReorderData offer valuable supervision for training a deep reordering model. By treating the matrices with index swaps as negative samples and their ground-truth matrices as positive samples, we build a deep model for matrix reordering.
 
-The models are available at [Google Drive](https://drive.google.com/drive/folders/1OSSXmXupKJJgr8V0pESfGUzMTbCmnNiN) or [Hugging Face](https://huggingface.co/reorderdata/reordering_model). The related code is available at [Github](https://github.com/reorderdata/reorderdata_code).
+The models are available at [Google Drive](https://drive.google.com/drive/folders/1pDLDtbPISPTpeXuxv_fb48g-EMMpBWhb?usp=drive_link) or [Hugging Face](https://huggingface.co/reorderdata/reordering_model). The related code is available at [Github](https://github.com/reorderdata/reorderdata_code/tree/main/reordering_model).
 
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-4 mt-md-0">
