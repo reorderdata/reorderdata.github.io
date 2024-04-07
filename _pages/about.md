@@ -30,10 +30,6 @@ Each matrix is of size 200x200 and symmetric.
 
 <br />
 
-TODO: A video introduction of the dataset.
-
-<br />
-
 <h4><span class="font-weight-bold">Dataset</span></h4>
 
 We provide the ReorderData test set at [Google Drive](https://drive.google.com/drive/folders/1GHtuL6TgyQ7WMW1C8sIYebx4HBknKu5n?usp=drive_link) and [Hugging Face](https://huggingface.co/datasets/reorderdata/ReorderData).
